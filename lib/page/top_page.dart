@@ -1,37 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:ssb_log_app/page/entry_page.dart';
 
 class MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
   final _pageWidgets = [
-    Container(
-        color: Colors.white,
-        child: Center(
-            child: Text(
-          "Entry",
-          style: TextStyle(
-            fontSize: 25,
-          ),
-        ))),
-    Container(
-        color: Colors.white,
-        child: Center(
-            child: Text(
-              "Album",
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ))
-    ),
-    Container(
-        color: Colors.white,
-        child: Center(
-            child: Text(
-              "Chat",
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ))
-    ),
+    Container(child: EntryPage()),
+    Container(child: EntryPage()),
+    Container(child: EntryPage()),
   ];
 
   @override
