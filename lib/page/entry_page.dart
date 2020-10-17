@@ -5,11 +5,18 @@ import 'package:ssb_log_app/model/player.dart';
 class EntryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return _builderEntry(index, _initBattleResult());
-        },
-        itemCount: 10);
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.redAccent,
+            child: Icon(Icons.add),
+            onPressed: () {
+              print("pressed");
+            }),
+        body: ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return _builderEntry(index, _initBattleResult());
+            },
+            itemCount: 10));
   }
 }
 
@@ -72,8 +79,8 @@ Widget _builderEntry(int index, BattleResult battleResult) {
                         Text('VS'),
                         Column(
                           children: [
-                            Text(battleResult.myself.character),
-                            Text(battleResult.myself.power.toString()),
+                            Text(battleResult.enemy.character),
+                            Text(battleResult.enemy.power.toString()),
                           ],
                         )
                       ],
