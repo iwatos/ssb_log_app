@@ -7,7 +7,7 @@ class MyHomePageState extends State<MyHomePage> {
         color: Colors.white,
         child: Center(
             child: Text(
-          "Home",
+          "Entry",
           style: TextStyle(
             fontSize: 25,
           ),
@@ -44,15 +44,16 @@ class MyHomePageState extends State<MyHomePage> {
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.home), title: Text('Home')),
+                icon: Icon(Icons.library_add_check_outlined), label: 'Entry'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.photo_album), title: Text('Album')),
+                icon: Icon(Icons.analytics_outlined), label: 'Analytics'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.chat), title: Text('Chat')),
+                icon: Icon(Icons.settings), label: 'Settings'),
           ],
           currentIndex: _currentIndex,
-          fixedColor: Colors.blueAccent,
-          onTap: _onItemTapped, //_onItemTapped,
+          fixedColor: Colors.redAccent,
+          backgroundColor: Colors.grey[300],
+          onTap: _onItemTapped,
           type: BottomNavigationBarType.fixed,
         ));
   }
