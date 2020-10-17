@@ -7,7 +7,8 @@ part 'battleResult.freezed.dart';
 @freezed
 abstract class BattleResult with _$BattleResult {
   const factory BattleResult(
-      {DateTime dateTime,
+      {String result,
+      DateTime dateTime,
       String stage,
       Duration duration,
       Player myself,

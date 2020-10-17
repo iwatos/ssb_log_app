@@ -15,12 +15,14 @@ class _$BattleResultTearOff {
 
 // ignore: unused_element
   _BattleResult call(
-      {DateTime dateTime,
+      {String result,
+      DateTime dateTime,
       String stage,
       Duration duration,
       Player myself,
       Player enemy}) {
     return _BattleResult(
+      result: result,
       dateTime: dateTime,
       stage: stage,
       duration: duration,
@@ -36,6 +38,7 @@ const $BattleResult = _$BattleResultTearOff();
 
 /// @nodoc
 mixin _$BattleResult {
+  String get result;
   DateTime get dateTime;
   String get stage;
   Duration get duration;
@@ -51,7 +54,8 @@ abstract class $BattleResultCopyWith<$Res> {
           BattleResult value, $Res Function(BattleResult) then) =
       _$BattleResultCopyWithImpl<$Res>;
   $Res call(
-      {DateTime dateTime,
+      {String result,
+      DateTime dateTime,
       String stage,
       Duration duration,
       Player myself,
@@ -71,6 +75,7 @@ class _$BattleResultCopyWithImpl<$Res> implements $BattleResultCopyWith<$Res> {
 
   @override
   $Res call({
+    Object result = freezed,
     Object dateTime = freezed,
     Object stage = freezed,
     Object duration = freezed,
@@ -78,6 +83,7 @@ class _$BattleResultCopyWithImpl<$Res> implements $BattleResultCopyWith<$Res> {
     Object enemy = freezed,
   }) {
     return _then(_value.copyWith(
+      result: result == freezed ? _value.result : result as String,
       dateTime: dateTime == freezed ? _value.dateTime : dateTime as DateTime,
       stage: stage == freezed ? _value.stage : stage as String,
       duration: duration == freezed ? _value.duration : duration as Duration,
@@ -115,7 +121,8 @@ abstract class _$BattleResultCopyWith<$Res>
       __$BattleResultCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DateTime dateTime,
+      {String result,
+      DateTime dateTime,
       String stage,
       Duration duration,
       Player myself,
@@ -139,6 +146,7 @@ class __$BattleResultCopyWithImpl<$Res> extends _$BattleResultCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object result = freezed,
     Object dateTime = freezed,
     Object stage = freezed,
     Object duration = freezed,
@@ -146,6 +154,7 @@ class __$BattleResultCopyWithImpl<$Res> extends _$BattleResultCopyWithImpl<$Res>
     Object enemy = freezed,
   }) {
     return _then(_BattleResult(
+      result: result == freezed ? _value.result : result as String,
       dateTime: dateTime == freezed ? _value.dateTime : dateTime as DateTime,
       stage: stage == freezed ? _value.stage : stage as String,
       duration: duration == freezed ? _value.duration : duration as Duration,
@@ -158,8 +167,15 @@ class __$BattleResultCopyWithImpl<$Res> extends _$BattleResultCopyWithImpl<$Res>
 /// @nodoc
 class _$_BattleResult with DiagnosticableTreeMixin implements _BattleResult {
   const _$_BattleResult(
-      {this.dateTime, this.stage, this.duration, this.myself, this.enemy});
+      {this.result,
+      this.dateTime,
+      this.stage,
+      this.duration,
+      this.myself,
+      this.enemy});
 
+  @override
+  final String result;
   @override
   final DateTime dateTime;
   @override
@@ -173,7 +189,7 @@ class _$_BattleResult with DiagnosticableTreeMixin implements _BattleResult {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BattleResult(dateTime: $dateTime, stage: $stage, duration: $duration, myself: $myself, enemy: $enemy)';
+    return 'BattleResult(result: $result, dateTime: $dateTime, stage: $stage, duration: $duration, myself: $myself, enemy: $enemy)';
   }
 
   @override
@@ -181,6 +197,7 @@ class _$_BattleResult with DiagnosticableTreeMixin implements _BattleResult {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'BattleResult'))
+      ..add(DiagnosticsProperty('result', result))
       ..add(DiagnosticsProperty('dateTime', dateTime))
       ..add(DiagnosticsProperty('stage', stage))
       ..add(DiagnosticsProperty('duration', duration))
@@ -192,6 +209,8 @@ class _$_BattleResult with DiagnosticableTreeMixin implements _BattleResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _BattleResult &&
+            (identical(other.result, result) ||
+                const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.dateTime, dateTime) ||
                 const DeepCollectionEquality()
                     .equals(other.dateTime, dateTime)) &&
@@ -209,6 +228,7 @@ class _$_BattleResult with DiagnosticableTreeMixin implements _BattleResult {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(result) ^
       const DeepCollectionEquality().hash(dateTime) ^
       const DeepCollectionEquality().hash(stage) ^
       const DeepCollectionEquality().hash(duration) ^
@@ -222,12 +242,15 @@ class _$_BattleResult with DiagnosticableTreeMixin implements _BattleResult {
 
 abstract class _BattleResult implements BattleResult {
   const factory _BattleResult(
-      {DateTime dateTime,
+      {String result,
+      DateTime dateTime,
       String stage,
       Duration duration,
       Player myself,
       Player enemy}) = _$_BattleResult;
 
+  @override
+  String get result;
   @override
   DateTime get dateTime;
   @override
