@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ssb_log_app/model/battleResult.dart';
 import 'package:ssb_log_app/model/player.dart';
+import 'package:ssb_log_app/util/dateTime_extension.dart';
 import 'package:ssb_log_app/util/enum_extension.dart';
 import 'package:ssb_log_app/util/fighters.dart';
 
@@ -59,7 +60,8 @@ Widget _builderEntry(int index, BattleResult battleResult) {
                     Container(
                         child: Column(
                       children: [
-                        Text(battleResult.dateTime.toIso8601String()),
+                        Text(DateTimeUtil.formatDateTime(
+                            battleResult.dateTime, "yyyy-MM-dd hh:mm")),
                         Text(battleResult.stage),
                         Row(
                           children: [
