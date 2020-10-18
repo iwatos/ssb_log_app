@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ssb_log_app/model/battleResult.dart';
 import 'package:ssb_log_app/model/player.dart';
+import 'package:ssb_log_app/util/enum_extension.dart';
+import 'package:ssb_log_app/util/fighters.dart';
 
 class EntryPage extends StatelessWidget {
   @override
@@ -22,15 +24,8 @@ class EntryPage extends StatelessWidget {
 
 BattleResult _initBattleResult() {
   final Player myself = new Player(
-      name: "myselfName",
-      character: "myselfCharacter",
-      power: 7500000,
-      stock: 1);
-  final Player enemy = new Player(
-      name: "EnemyName",
-      character: "enemyCharacteraaaa",
-      power: 8000000,
-      stock: 0);
+      name: "myselfName", fighter: Fighters["4d"], power: 7500000, stock: 1);
+  final Player enemy = new Player(name: "EnemyName", power: 8000000, stock: 0);
   final BattleResult battleResult = new BattleResult(
       result: 'Win',
       dateTime: DateTime.now(),
@@ -47,48 +42,48 @@ Widget _builderEntry(int index, BattleResult battleResult) {
       shape: RoundedRectangleBorder(
         borderRadius: const BorderRadius.all(Radius.circular(0)),
       ),
-      child: Container(
-          decoration: BoxDecoration(
-            border: Border(
-              left: BorderSide(
-                width: 30,
+      child: Row(
+        children: [
+          Expanded(
+              flex: 1,
+              child: Container(
                 color: Colors.red,
-              ),
-            ),
-          ),
-          child: Padding(
-            child: Row(
-              children: [
-                Container(
-                  color: Colors.red,
-                  child: Text(battleResult.result),
-                ),
-                Container(
-                    child: Column(
+                height: 100,
+                width: 8.0,
+              )),
+          Expanded(
+              flex: 9,
+              child: Padding(
+                child: Row(
                   children: [
-                    Text(battleResult.dateTime.toIso8601String()),
-                    Text(battleResult.stage),
-                    Row(
+                    Container(
+                        child: Column(
                       children: [
-                        Column(
+                        Text(battleResult.dateTime.toIso8601String()),
+                        Text(battleResult.stage),
+                        Row(
                           children: [
-                            Text(battleResult.myself.character),
-                            Text(battleResult.myself.power.toString()),
-                          ],
-                        ),
-                        Text('VS'),
-                        Column(
-                          children: [
-                            Text(battleResult.enemy.character),
-                            Text(battleResult.enemy.power.toString()),
+                            Column(
+                              children: [
+                                Text(battleResult.myself.fighter.name),
+                                Text(battleResult.myself.power.toString()),
+                              ],
+                            ),
+                            Text('VS'),
+                            Column(
+                              children: [
+                                Text("bbb"),
+                                Text(battleResult.enemy.power.toString()),
+                              ],
+                            )
                           ],
                         )
                       ],
-                    )
+                    ))
                   ],
-                ))
-              ],
-            ),
-            padding: EdgeInsets.all(20.0),
-          )));
+                ),
+                padding: EdgeInsets.all(20.0),
+              ))
+        ],
+      ));
 }
