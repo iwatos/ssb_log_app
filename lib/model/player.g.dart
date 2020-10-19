@@ -9,9 +9,7 @@ part of 'player.dart';
 _$_Player _$_$_PlayerFromJson(Map<String, dynamic> json) {
   return _$_Player(
     name: json['name'] as String,
-    fighter: json['fighter'] == null
-        ? null
-        : Fighter.fromJson(json['fighter'] as Map<String, dynamic>),
+    fighterId: json['fighterId'] as String,
     power: json['power'] as int,
     stock: json['stock'] as int,
   );
@@ -19,7 +17,7 @@ _$_Player _$_$_PlayerFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_PlayerToJson(_$_Player instance) => <String, dynamic>{
       'name': instance.name,
-      'fighter': instance.fighter,
+      'fighterId': instance.fighterId,
       'power': instance.power,
       'stock': instance.stock,
     };

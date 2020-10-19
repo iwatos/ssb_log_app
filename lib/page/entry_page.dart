@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:ssb_log_app/model/battleResult.dart';
+import 'package:ssb_log_app/model/fighter.dart';
 import 'package:ssb_log_app/model/player.dart';
 import 'package:ssb_log_app/util/dateTime_extension.dart';
 import 'package:ssb_log_app/util/enum_extension.dart';
@@ -24,8 +27,11 @@ class EntryPage extends StatelessWidget {
 }
 
 BattleResult _initBattleResult() {
-  final Player myself = new Player(
-      name: "myselfName", fighter: Fighters["4d"], power: 7500000, stock: 1);
+  String jsonString =
+      '{"name": "myselfName","fighterId": "4d","power": 800000,"stock": 1}';
+  final jsonMap = jsonDecode(jsonString);
+  Player j = Player.fromJson(jsonMap);
+  final Player myself = j;
   final Player enemy = new Player(name: "EnemyName", power: 8000000, stock: 0);
   final BattleResult battleResult = new BattleResult(
       result: 'Win',
@@ -67,7 +73,8 @@ Widget _builderEntry(int index, BattleResult battleResult) {
                           children: [
                             Column(
                               children: [
-                                Text(battleResult.myself.fighter.name),
+                                Text(Fighters[battleResult.myself.fighterId]
+                                    .name),
                                 Text(battleResult.myself.power.toString()),
                               ],
                             ),

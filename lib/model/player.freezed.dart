@@ -17,10 +17,10 @@ class _$PlayerTearOff {
   const _$PlayerTearOff();
 
 // ignore: unused_element
-  _Player call({String name, Fighter fighter, int power, int stock}) {
+  _Player call({String name, String fighterId, int power, int stock}) {
     return _Player(
       name: name,
-      fighter: fighter,
+      fighterId: fighterId,
       power: power,
       stock: stock,
     );
@@ -39,7 +39,7 @@ const $Player = _$PlayerTearOff();
 /// @nodoc
 mixin _$Player {
   String get name;
-  Fighter get fighter;
+  String get fighterId;
   int get power;
   int get stock;
 
@@ -51,9 +51,7 @@ mixin _$Player {
 abstract class $PlayerCopyWith<$Res> {
   factory $PlayerCopyWith(Player value, $Res Function(Player) then) =
       _$PlayerCopyWithImpl<$Res>;
-  $Res call({String name, Fighter fighter, int power, int stock});
-
-  $FighterCopyWith<$Res> get fighter;
+  $Res call({String name, String fighterId, int power, int stock});
 }
 
 /// @nodoc
@@ -67,26 +65,16 @@ class _$PlayerCopyWithImpl<$Res> implements $PlayerCopyWith<$Res> {
   @override
   $Res call({
     Object name = freezed,
-    Object fighter = freezed,
+    Object fighterId = freezed,
     Object power = freezed,
     Object stock = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
-      fighter: fighter == freezed ? _value.fighter : fighter as Fighter,
+      fighterId: fighterId == freezed ? _value.fighterId : fighterId as String,
       power: power == freezed ? _value.power : power as int,
       stock: stock == freezed ? _value.stock : stock as int,
     ));
-  }
-
-  @override
-  $FighterCopyWith<$Res> get fighter {
-    if (_value.fighter == null) {
-      return null;
-    }
-    return $FighterCopyWith<$Res>(_value.fighter, (value) {
-      return _then(_value.copyWith(fighter: value));
-    });
   }
 }
 
@@ -95,10 +83,7 @@ abstract class _$PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
   factory _$PlayerCopyWith(_Player value, $Res Function(_Player) then) =
       __$PlayerCopyWithImpl<$Res>;
   @override
-  $Res call({String name, Fighter fighter, int power, int stock});
-
-  @override
-  $FighterCopyWith<$Res> get fighter;
+  $Res call({String name, String fighterId, int power, int stock});
 }
 
 /// @nodoc
@@ -113,13 +98,13 @@ class __$PlayerCopyWithImpl<$Res> extends _$PlayerCopyWithImpl<$Res>
   @override
   $Res call({
     Object name = freezed,
-    Object fighter = freezed,
+    Object fighterId = freezed,
     Object power = freezed,
     Object stock = freezed,
   }) {
     return _then(_Player(
       name: name == freezed ? _value.name : name as String,
-      fighter: fighter == freezed ? _value.fighter : fighter as Fighter,
+      fighterId: fighterId == freezed ? _value.fighterId : fighterId as String,
       power: power == freezed ? _value.power : power as int,
       stock: stock == freezed ? _value.stock : stock as int,
     ));
@@ -130,7 +115,7 @@ class __$PlayerCopyWithImpl<$Res> extends _$PlayerCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_Player with DiagnosticableTreeMixin implements _Player {
-  const _$_Player({this.name, this.fighter, this.power, this.stock});
+  const _$_Player({this.name, this.fighterId, this.power, this.stock});
 
   factory _$_Player.fromJson(Map<String, dynamic> json) =>
       _$_$_PlayerFromJson(json);
@@ -138,7 +123,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   @override
   final String name;
   @override
-  final Fighter fighter;
+  final String fighterId;
   @override
   final int power;
   @override
@@ -146,7 +131,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Player(name: $name, fighter: $fighter, power: $power, stock: $stock)';
+    return 'Player(name: $name, fighterId: $fighterId, power: $power, stock: $stock)';
   }
 
   @override
@@ -155,7 +140,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
     properties
       ..add(DiagnosticsProperty('type', 'Player'))
       ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('fighter', fighter))
+      ..add(DiagnosticsProperty('fighterId', fighterId))
       ..add(DiagnosticsProperty('power', power))
       ..add(DiagnosticsProperty('stock', stock));
   }
@@ -166,9 +151,9 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
         (other is _Player &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.fighter, fighter) ||
+            (identical(other.fighterId, fighterId) ||
                 const DeepCollectionEquality()
-                    .equals(other.fighter, fighter)) &&
+                    .equals(other.fighterId, fighterId)) &&
             (identical(other.power, power) ||
                 const DeepCollectionEquality().equals(other.power, power)) &&
             (identical(other.stock, stock) ||
@@ -179,7 +164,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(fighter) ^
+      const DeepCollectionEquality().hash(fighterId) ^
       const DeepCollectionEquality().hash(power) ^
       const DeepCollectionEquality().hash(stock);
 
@@ -194,7 +179,7 @@ class _$_Player with DiagnosticableTreeMixin implements _Player {
 }
 
 abstract class _Player implements Player {
-  const factory _Player({String name, Fighter fighter, int power, int stock}) =
+  const factory _Player({String name, String fighterId, int power, int stock}) =
       _$_Player;
 
   factory _Player.fromJson(Map<String, dynamic> json) = _$_Player.fromJson;
@@ -202,7 +187,7 @@ abstract class _Player implements Player {
   @override
   String get name;
   @override
-  Fighter get fighter;
+  String get fighterId;
   @override
   int get power;
   @override
