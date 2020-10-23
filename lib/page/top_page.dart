@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ssb_log_app/page/entry_page.dart';
+import 'package:ssb_log_app/page/entry/entry_top_page.dart';
 
 class MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
