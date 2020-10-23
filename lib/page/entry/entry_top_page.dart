@@ -6,7 +6,7 @@ import 'package:ssb_log_app/model/player.dart';
 import 'package:ssb_log_app/util/dateTime_extension.dart';
 import 'package:ssb_log_app/util/fighters.dart';
 
-class EntryPage extends StatelessWidget {
+class EntryTopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
