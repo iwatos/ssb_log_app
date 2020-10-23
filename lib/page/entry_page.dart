@@ -59,37 +59,48 @@ Widget _builderEntry(int index, BattleResult battleResult) {
           Expanded(
               flex: 9,
               child: Padding(
-                child: Row(
+                padding: EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                        child: Column(
+                    Text(
+                      DateTimeUtil.formatDateTime(
+                          battleResult.dateTime, "yyyy/MM/dd hh:mm"),
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Row(
                       children: [
-                        Text(DateTimeUtil.formatDateTime(
-                            battleResult.dateTime, "yyyy-MM-dd hh:mm")),
-                        Text(battleResult.stage),
-                        Row(
-                          children: [
-                            Column(
+                        Expanded(
+                            flex: 8,
+                            child: Column(
                               children: [
+                                Text(battleResult.myself.name),
                                 Text(Fighters[battleResult.myself.fighterId]
                                     .name),
                                 Text(battleResult.myself.power.toString()),
                               ],
-                            ),
-                            Text('VS'),
-                            Column(
+                            )),
+                        Expanded(
+                            flex: 4,
+                            child: Column(
                               children: [
+                                Text('VS'),
+                                Text(battleResult.stage),
+                              ],
+                            )),
+                        Expanded(
+                            flex: 8,
+                            child: Column(
+                              children: [
+                                Text(battleResult.enemy.name),
                                 Text("bbb"),
                                 Text(battleResult.enemy.power.toString()),
                               ],
-                            )
-                          ],
-                        )
+                            ))
                       ],
-                    ))
+                    )
                   ],
                 ),
-                padding: EdgeInsets.all(20.0),
               ))
         ],
       ));
