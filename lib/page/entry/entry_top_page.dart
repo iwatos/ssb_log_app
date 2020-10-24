@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:ssb_log_app/model/battleResult.dart';
 import 'package:ssb_log_app/model/player.dart';
+import 'package:ssb_log_app/page/entry/entry_add_page.dart';
 import 'package:ssb_log_app/util/dateTime_extension.dart';
 import 'package:ssb_log_app/util/fighters.dart';
 
@@ -14,13 +15,21 @@ class EntryTopPage extends StatelessWidget {
             backgroundColor: Colors.redAccent,
             child: Icon(Icons.add),
             onPressed: () {
-              print("pressed");
+              _showDialog(context);
             }),
         body: ListView.builder(
             itemBuilder: (BuildContext context, int index) {
               return _builderEntry(index, _initBattleResult());
             },
             itemCount: 10));
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return EntryAddPage();
+        });
   }
 }
 
